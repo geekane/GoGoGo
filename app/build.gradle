@@ -1,20 +1,27 @@
 apply plugin: 'com.android.application'
 
 android {
+    // 这里是正确的签名配置
     signingConfigs {
         debug {
-            storeFile file('..\\keystore\\GoGoGo.jks')
-            storePassword 'GoGoGo'
-            keyAlias 'GoGoKey'
-            keyPassword 'GoGoGo'
+            // 这里我们用新的签名文件和密码，保持和release一致
+            storeFile file('../keystore/my-new-keystore.jks')
+            storePassword '123456'
+            keyAlias 'my-new-alias'
+            keyPassword '123456'
         }
         release {
-            storeFile file('..\\keystore\\GoGoGo.jks')
-            storePassword 'GoGoGo'
-            keyAlias 'GoGoKey'
-            keyPassword 'GoGoGo'
+            // 指定我们新创建的签名文件的路径
+            storeFile file('../keystore/my-new-keystore.jks')
+            // 填写你设置的新密码
+            storePassword '123456'
+            // 填写我们设置的新别名
+            keyAlias 'my-new-alias'
+            // 填写你设置的新密码
+            keyPassword '123456'
         }
     }
+
     ndkVersion '26.2.11394342'
     compileSdk 32
     buildToolsVersion = '34.0.0'
@@ -31,6 +38,7 @@ android {
             //noinspection ChromeOsAbiSupport
             abiFilters "arm64-v8a"
         }
+        // 确保这里使用了正确的 release 签名配置
         signingConfig signingConfigs.release
     }
     buildTypes {
@@ -77,12 +85,12 @@ android {
         includeInBundle false
     }
     namespace 'com.zcshou.gogogo'
-//    lintOptions {
-//        checkReleaseBuilds false
-//        // Or, if you prefer, you can continue to check for errors in release builds,
-//        // but continue the build even when errors are found:
-//        abortOnError false
-//    }
+//    lintOptions {
+//        checkReleaseBuilds false
+//        // Or, if you prefer, you can continue to check for errors in release builds,
+//        // but continue the build even when errors are found:
+//        abortOnError false
+//    }
 
     // 指定输出的可执行程序的名字
     applicationVariants.configureEach { variant ->
