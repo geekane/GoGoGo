@@ -220,7 +220,7 @@ public class MainActivity extends BaseActivity implements SensorEventListener {
 
         initUpdateVersion();
 
-        checkUpdateVersion(false);
+        // checkUpdateVersion(false);
     }
 
     @Override
@@ -1514,3 +1514,4 @@ public class MainActivity extends BaseActivity implements SensorEventListener {
         }
     }
 }
+
