@@ -1,8 +1,3 @@
-<string name="license_dialog_title">验证</string>
-<string name="license_dialog_button">确认</string>
-<string name="license_error_toast">卡号错误，请重试</string>
-<string name="license_input_hint">请输入卡号</string>
-<string name="license_dialog_heading">请输入卡号</string>
 <resources>
     <string name="app_name">ZZ定位</string>
     <string name="app_settings">设置</string>
@@ -52,15 +47,12 @@
     <string name="app_location_copy">位置已复制到剪切板</string>
     <string name="app_location_save">位置已保存</string>
 
-    <!-- 欢迎页 -->
     <string name="welcome_btn_txt">进入应用</string>
     <string name="app_btn_agree">同意并继续</string>
     <string name="app_btn_disagree">不同意</string>
 
-    <!-- 设置界面 -->
     <string name="setting_group_move">移动</string>
-    <string name="setting_current_value">"当前值: "</string> <!-- 使用双引号以保留空格 -->
-    <string name="setting_joystick">摇杆类型</string>
+    <string name="setting_current_value">"当前值: "</string> <string name="setting_joystick">摇杆类型</string>
     <string name="setting_joystick_tips">重启摇杆后生效</string>
     <string name="setting_walk">步行速度(米/秒)</string>
     <string name="setting_walk_default">1.2</string>
@@ -84,7 +76,6 @@
     <string name="setting_author">开发者</string>
     <string name="setting_group_sys">系统</string>
 
-    <!-- 历史记录页面 -->
     <string name="history_expiration">7</string>
     <string name="history_location_default_name">地图位置</string>
     <string name="history_idle">暂无历史记录</string>
@@ -93,10 +84,8 @@
     <string name="history_error_location">定位失败，请手动选取定位点</string>
     <string name="history_error_search">未搜索到指定内容</string>
 
-    <!-- 通知栏 -->
     <string name="note_show">显示摇杆</string>
     <string name="note_hide">隐藏摇杆</string>
-    <!-- 摇杆 -->
     <string name="joystick_map_tips">搜索或点击地图位置</string>
     <string name="joystick_history_tips">搜索或点击历史位置</string>
     <string name="joystick_history">历史记录</string>
@@ -105,7 +94,6 @@
     <string name="joystick_walk">步行</string>
     <string name="joystick_run">跑步</string>
     <string name="joystick_bike">自行车</string>
-    <!-- 导航页 -->
     <string name="nav_drawer_open">打开导航菜单</string>
     <string name="nav_drawer_close">关闭导航菜单</string>
     <string name="nav_menu_history">历史记录</string>
@@ -118,7 +106,6 @@
     <string name="nav_user_name">ZZ定位</string>
     <string name="nav_user_limit_info">仅供学习使用，否则后果自负!</string>
 
-    <!-- 主界面 -->
     <string name="label_longitude">经度</string>
     <string name="label_latitude">纬度</string>
     <string name="input_position_ok">传送</string>
@@ -130,13 +117,11 @@
     <string name="zoom_in">放大</string>
     <string name="zoom_out">缩小</string>
 
-    <!-- 百度地图 -->
     <string name="map_pic_sate">卫星图</string>
     <string name="map_pic_normal">普通图</string>
     <string name="safecode">32:2F:E6:05:6C:2F:11:6D:CD:ED:AC:FF:23:02:5A:29:68:FD:45:D2;com.zcshou.gogogo</string>
     <string name="ak">jNhIRqpvNz76CYWBiLH8WTfHmKyuOfVK</string>
 
-    <!-- 更新 -->
     <string name="update_title">新版本可用</string>
     <string name="update_downloading">升级文件下载中。。。</string>
     <string name="update_last">恭喜，ZZ定位已是最新版</string>
@@ -145,7 +130,6 @@
     <string name="update_time">更新时间：</string>
     <string name="update_commit">提交信息：</string>
 
-    <!-- 注册 -->
     <string name="register_title">离线注册</string>
     <string name="register_user_name">用户名</string>
     <string name="register_response">注册码</string>
@@ -154,6 +138,11 @@
     <string name="register_tips">长按复制以上代码发送给开发者，然后在下面填写获取到的注册码</string>
     <string name="register_cancel">取消</string>
     <string name="register_check">我已阅读免责声明，并同意所有条款</string>
+
+    <string name="license_dialog_title">验证</string>
+    <string name="license_dialog_button">确认</string>
+    <string name="license_error_toast">卡号错误，请重试</string>
+    <string name="license_input_hint">请输入卡号</string>
+    <string name="license_dialog_heading">请输入卡号</string>
+
 </resources>
-
-
