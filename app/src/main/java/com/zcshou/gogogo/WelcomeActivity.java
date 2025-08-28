@@ -14,12 +14,15 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.MovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +33,9 @@ import com.zcshou.utils.GoUtils;
 import java.util.ArrayList;
 
 public class WelcomeActivity extends AppCompatActivity {
+    // 在这里设置你的卡号
+    private final String LICENSE_KEY = "45b21a38-1c6f-41e4-84dd-9fbfd8dec333";
+
     private static SharedPreferences preferences;
     private static final String KEY_ACCEPT_AGREEMENT = "KEY_ACCEPT_AGREEMENT";
     private static final String KEY_ACCEPT_PRIVACY = "KEY_ACCEPT_PRIVACY";
@@ -45,9 +51,16 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_welcome);
 
+        // 启动时首先显示卡号验证弹窗
+        showLicenseDialog();
+    }
+
+    /**
+     * 卡号验证成功后，初始化App原来的逻辑
+     */
+    private void initializeOriginalAppLogic() {
         // 生成默认参数的值（一定要尽可能早的调用，因为后续有些界面可能需要使用参数）
         PreferenceManager.setDefaultValues(this, R.xml.preferences_main, false);
 
@@ -56,6 +69,55 @@ public class WelcomeActivity extends AppCompatActivity {
 
         checkAgreementAndPrivacy();
     }
+
+    /**
+     * 显示卡号输入弹窗
+     */
+    private void showLicenseDialog() {
+        // 加载我们创建的弹窗布局
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.dialog_license, null);
+        final EditText licenseInput = dialogView.findViewById(R.id.license_key_input);
+
+        // 创建弹窗
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.license_dialog_title);
+        builder.setView(dialogView);
+
+        // 设置确认按钮的点击事件
+        builder.setPositiveButton(R.string.license_dialog_button, (dialog, which) -> {
+            // 这个按钮的逻辑在后面会被重写，这里留空
+        });
+
+        // 创建并显示弹窗
+        AlertDialog dialog = builder.create();
+
+        // 设置弹窗为不可取消
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.show();
+
+        // 重写确认按钮的点击事件，这样在输入错误时就不会关闭弹窗
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+            String inputKey = licenseInput.getText().toString().trim();
+            // 检查输入的卡号是否正确
+            if (LICENSE_KEY.equals(inputKey)) {
+                // 如果正确，关闭弹窗并继续执行原来的App逻辑
+                dialog.dismiss();
+                Toast.makeText(WelcomeActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
+                initializeOriginalAppLogic();
+            } else {
+                // 如果错误，提示用户
+                Toast.makeText(WelcomeActivity.this, R.string.license_error_toast, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    // ===================================================================================
+    // 下面的所有代码都是你原来文件里的，一行都没有改动，直接复制过来的
+    // ===================================================================================
 
     @Override
     protected void onPause() {
