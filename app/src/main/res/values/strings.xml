@@ -1,9 +1,14 @@
+<string name="license_dialog_title">验证</string>
+<string name="license_dialog_button">确认</string>
+<string name="license_error_toast">卡号错误，请重试</string>
+<string name="license_input_hint">请输入卡号</string>
+<string name="license_dialog_heading">请输入卡号</string>
 <resources>
     <string name="app_name">ZZ定位</string>
     <string name="app_settings">设置</string>
     <string name="app_history">历史记录</string>
-    <string name="app_author">ZCShou</string>
-    <string name="app_email">zcsexp@gmail.com</string>
+    <string name="app_author">ZZZ</string>
+    <string name="app_email">zzh922997@gmail.com</string>
     <string name="app_statement">仅供学习使用，否则后果自负！</string>
     <string name="app_service_tips">ZZ定位正在运行中</string>
     <string name="app_agreement">用户协议</string>
@@ -150,4 +155,5 @@
     <string name="register_cancel">取消</string>
     <string name="register_check">我已阅读免责声明，并同意所有条款</string>
 </resources>
+
 
